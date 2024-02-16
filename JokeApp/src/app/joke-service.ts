@@ -6,7 +6,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class JokeService {
-  private apiUrl = 'https://v2.jokeapi.dev/joke/Any?type=single&amount=1';
+  private apiUrl = 'https://v2.jokeapi.dev/joke/Any?type=single&amount=10';
   constructor( private http:HttpClient) { }
 
   fetchJokes(): Observable<any> {

@@ -8,7 +8,8 @@ import { JokeService } from '../joke-service';
 })
 export class JokeComponent implements OnInit {
 
-  jokes:any;
+  jokes:any[]=[];
+  currentIndex=0;
   isClicked:boolean=false;
 
   constructor(private jokeService:JokeService){}
@@ -17,25 +18,21 @@ export class JokeComponent implements OnInit {
     this.loadJokes();
    
  }
- 
+
  toggleHeart(): void {
   this.isClicked = !this.isClicked;
 }
 
- loadJokes(){
-
-  this.jokeService.fetchJokes().subscribe(
-
-    data=> {
-      console.log(data);
-      this.jokes=data;
-    },error => {
-      console.error('Error fetching joke:', error);
-      this.jokes = { setup: 'Failed to fetch joke', delivery: 'Please try again later' };
-    }
-  );
-
-    }
-
- }
-
+loadNextJoke() {
+  this.currentIndex = (this.currentIndex + 1);
+  if(this.currentIndex>9){
+    this.loadJokes();
+  }
+}
+loadJokes() {
+  this.jokeService.fetchJokes().subscribe((data: any) => {
+    this.jokes = data.jokes; 
+    this.currentIndex = 0; 
+  });
+}
+}

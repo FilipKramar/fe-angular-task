@@ -27,7 +27,7 @@
 
 
 #jokecontent {
-    max-width: 100%;
+    width: 100%;
     padding: 3%;
     border-radius: 1.5em;
     background-color: lightgoldenrodyellow;
@@ -35,7 +35,7 @@
     font-size: 20px;
     text-align: center;
     display: flex;
-    justify-content:space-evenly;
+    justify-content:space-around;
     align-items: center;
     position: relative;
 }
@@ -50,7 +50,7 @@
 }
 
 #jokecontent #heart {
-    flex: 1;
+    flex: 0.5;
     width: 100px;
     height: 90px;
     
@@ -85,3 +85,17 @@
 #jokecontent #heart.clicked:after {
     background-color: red;
 }
+
+.button {
+    margin-top: 1.25em;
+    background-color: gray;
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    
+    cursor: pointer;
+  }
