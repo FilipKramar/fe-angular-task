@@ -1,0 +1,17 @@
+#header{
+    
+    background-color: orange;
+    display: flex; 
+    justify-content: center;
+    align-items: center; 
+    height: 50px;
+    width:100%;
+   
+}
+#header h1{
+
+    color: white;
+    margin: 0;
+    font-size: 36px;
+    
+}

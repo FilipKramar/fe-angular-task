@@ -1,0 +1,31 @@
+<div id="body"> 
+ <h2>Today's jokes:</h2>
+ <div class="container" >
+    <div class="content">
+        <div class="timestamp"></div>
+        <p class="joke">{{ jokes[currentIndex]?.joke }}</p>
+        <div  class="icon">
+         <p class="heart" [class.clicked]="isClicked" (click)="toggleFavorite()"></p>
+        </div>
+        </div>
+    <button class="button" (click)="loadNextJoke()">Next</button>
+    </div>
+    <h2>Favourite jokes:</h2>
+
+    <div class="container">
+        <div class="content" *ngFor="let joke of favouriteJokes ; let i=index">
+            <div class="timestamp"> {{joke.timestamp}}</div>
+            <p class="joke">{{ joke.joke.joke }}</p>  
+           <div class="icon">
+                <div class="icon-trash" (click)="deleteJoke(i)">
+                    <div class="trash-lid" style="background-color: white"></div>
+                    <div class="trash-container" style="background-color: white"></div>
+                    <div class="trash-line-1"></div>
+                    <div class="trash-line-2"></div>
+                    <div class="trash-line-3"></div>
+                  </div>  
+                </div>
+    </div> </div>
+   
+  
+</div>
