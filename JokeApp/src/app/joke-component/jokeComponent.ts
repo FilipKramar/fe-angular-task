@@ -9,6 +9,7 @@ import { JokeService } from '../joke-service';
 export class JokeComponent implements OnInit {
 
   jokes:any;
+  isClicked:boolean=false;
 
   constructor(private jokeService:JokeService){}
  
@@ -16,6 +17,10 @@ export class JokeComponent implements OnInit {
     this.loadJokes();
    
  }
+ 
+ toggleHeart(): void {
+  this.isClicked = !this.isClicked;
+}
 
  loadJokes(){
 
