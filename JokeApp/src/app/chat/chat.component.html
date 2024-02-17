@@ -1,8 +1,26 @@
+<div id="chatbubble" (click)="toggleModal()">
+  <div id="chat-btn"></div>
+</div>
+
+
 <div id="modal" *ngIf="modalVisible">
-    <p>Hello</p>
+  <div class="chatheader">Welcome to our Help Support!</div>
+  <div class="chatcontent">
+    <div *ngFor="let message of chatService.websocketMessages">
+      <div class="messagecontent">{{ message.user }}: {{ message.message }}</div>
+    </div>
   </div>
   
-  <div id="chatbubble" (click)="toggleModal()">
-    <div id="chat-btn"></div>
-  </div>
   
+   <form>
+   <div class="input">
+    <input class="user" placeholder="User" [(ngModel)]="user" name="user" />
+    <input class="message" placeholder="Type your message here" [(ngModel)]="message" name="message" />
+    <button class="messagebutton" (click)="sendMessage()">Send</button>
+  </div>
+</form>
+  </div>
+
+
+  
+ 
