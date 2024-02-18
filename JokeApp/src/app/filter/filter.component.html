@@ -1,0 +1,27 @@
+<u (click)="toggleCollapse()" id="filter">Do you want to filter your jokes? Click here...</u>
+<span id="center">
+<div *ngIf="isColapsed" id="collapsed">
+    <form [formGroup]="filteredJokes" id="form">
+      <div class="checkforms">
+        <label class="title">Category:</label><br>
+        <div *ngFor="let data of categories; let i=index">
+          <label class="checkbox">
+            <input type="checkbox" [value]="data.value" (change)="onCheckboxChange($event)" />
+            <span class="text">{{data.name}} </span>
+          </label>
+        </div>
+      </div>
+        <div class="checkforms">
+        <label class="title">Flags to blacklist:</label><br>
+        <div *ngFor="let data of flags; let i=index">
+          <label class="checkbox">
+            <input type="checkbox" [value]="data.value" (change)="onChange($event)" />
+            <span class="text"> {{data.name}}</span>
+          </label>
+        </div>
+      </div>
+       
+      </form>
+      <input type="submit" value="Filter Jokes"(click)="submitForm()" id="button">
+</div>
+</span>
