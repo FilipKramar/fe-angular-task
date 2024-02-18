@@ -8,10 +8,11 @@ import { Observable } from 'rxjs';
 export class JokeService {
 
   private favoriteJokesKey='favoriteJokes';
-  private apiUrl = 'https://v2.jokeapi.dev/joke/Any?type=single&amount=10';
+  public apiUrl = 'https://v2.jokeapi.dev/joke/Any?type=single&amount=10';
   constructor( private http:HttpClient) { }
 
   fetchJokes(): Observable<any> {
+    console.log(this.apiUrl);
     return this.http.get<any>(this.apiUrl);
   }
 
